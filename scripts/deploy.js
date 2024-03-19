@@ -1,14 +1,12 @@
-const hre = require("hardhat")
+const hre = require("hardhat");
 
 const tokens = (n) => {
-  return ethers.utils.parseUnits(n.toString(), 'ether')
-}
+    return ethers.utils.parseUnits(n.toString(), "ether");
+};
 
-async function main() {
-
-}
+async function main() {}
 
 main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
+    console.error(error);
+    process.exitCode = 1;
 });
