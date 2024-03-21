@@ -13,6 +13,7 @@ describe("Dappcord", () => {
     const NAME = "Dappcord";
     const SYMBOL = "DC";
     beforeEach(async () => {
+        [deployer, user] = await ethers.getSigners();
         const Dappcord = await ethers.getContractFactory("Dappcord");
         dappcord = await Dappcord.deploy(NAME, SYMBOL);
         await dappcord.deployed();
@@ -25,6 +26,10 @@ describe("Dappcord", () => {
         it("Sets the symbol", async () => {
             const symbol = await dappcord.symbol();
             expect(symbol).to.equal("DC");
+        });
+        it('Sets the owner', async () => {
+            const owner = await dappcord.owner();
+            expect(owner).to.equal(deployer.address);
         });
     });
 });
